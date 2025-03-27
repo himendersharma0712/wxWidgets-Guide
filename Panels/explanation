@@ -1,0 +1,29 @@
+This wxWidgets program creates a simple GUI application with two panels: `LeftPanel` and `RightPanel`, which communicate with each other.
+
+### Key Components:
+1. **Panels.h**: 
+   - Defines two panels: `LeftPanel` (with two buttons: "+" and "-") and `RightPanel` (with a static text label to display the count).
+   - Constants `ID_PLUS` and `ID_MINUS` are defined to identify the buttons.
+
+2. **Panels.cpp**:
+   - `LeftPanel` constructor creates two buttons and connects them to event handlers (`OnPlus` and `OnMinus`).
+   - Event handlers (`OnPlus` and `OnMinus`) increment or decrement a counter (`count`) and update the `RightPanel`'s static text with the new value.
+   - `RightPanel` constructor creates a static text label to display the counter value.
+
+3. **Communicate.h**:
+   - Defines the `Communicate` class, which is derived from `wxFrame` and holds instances of `LeftPanel` and `RightPanel`.
+   - The constructor initializes the panels and arranges them using a horizontal box sizer.
+
+4. **Communicate.cpp**:
+   - Implements the `Communicate` class constructor, which creates and lays out the `LeftPanel` and `RightPanel` within a horizontal box sizer, centering the window.
+
+5. **main.h and main.cpp**:
+   - `main.h` defines the `MyApp` class, which initializes the application and shows the `Communicate` frame.
+   - `main.cpp` implements the `OnInit` method, where the `Communicate` frame is created and displayed.
+
+### How It Works:
+- The `LeftPanel` contains "+" and "-" buttons that increment and decrement a counter.
+- The updated counter value is displayed on the `RightPanel`, which contains a `wxStaticText` widget.
+- The panels communicate through the `Communicate` frame, which holds references to both panels.
+  
+This program demonstrates how to create a simple interactive wxWidgets application where user actions on one panel affect the content displayed on another panel.
